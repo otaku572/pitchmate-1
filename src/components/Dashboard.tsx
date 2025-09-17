@@ -1,7 +1,7 @@
 
 import { Card, CardContent } from "@/components/ui/card";
 import { useEffect, useState } from "react";
-import axios from "axios";
+import axios from "../api/axios";
 
 interface UserData {
   email: string;
