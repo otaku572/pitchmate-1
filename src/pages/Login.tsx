@@ -21,14 +21,14 @@ const Login: React.FC = () => {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
-      <form onSubmit={handleSubmit} className="bg-white p-8 rounded shadow w-80">
+      <form onSubmit={handleSubmit} className="bg-card text-card-foreground p-8 rounded shadow w-80">
         <h2 className="text-2xl mb-4">Login</h2>
         <input
           type="email"
           placeholder="Email"
           value={email}
           onChange={e => setEmail(e.target.value)}
-          className="mb-2 p-2 w-full border rounded"
+          className="mb-2 p-2 w-full border rounded bg-input text-foreground"
           required
         />
         <input
@@ -36,14 +36,14 @@ const Login: React.FC = () => {
           placeholder="Password"
           value={password}
           onChange={e => setPassword(e.target.value)}
-          className="mb-4 p-2 w-full border rounded"
+          className="mb-4 p-2 w-full border rounded bg-input text-foreground"
           required
         />
-        {error && <div className="text-red-500 mb-2">{error}</div>}
-        <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded w-full">Login</button>
+        {error && <div className="text-destructive mb-2">{error}</div>}
+        <button type="submit" className="bg-primary text-primary-foreground px-4 py-2 rounded w-full">Login</button>
         <p className="mt-4 text-center text-sm text-muted-foreground">
           Don't have an account?{" "}
-          <Link to="/register" className="underline text-foreground">
+          <Link to="/register" className="underline text-primary">
             Register
           </Link>
         </p>

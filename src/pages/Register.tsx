@@ -22,14 +22,14 @@ const Register: React.FC = () => {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
-      <form onSubmit={handleSubmit} className="bg-white p-8 rounded shadow w-80">
+      <form onSubmit={handleSubmit} className="bg-card text-card-foreground p-8 rounded shadow w-80">
         <h2 className="text-2xl mb-4">Register</h2>
         <input
           type="email"
           placeholder="Email"
           value={email}
           onChange={e => setEmail(e.target.value)}
-          className="mb-2 p-2 w-full border rounded"
+          className="mb-2 p-2 w-full border rounded bg-input text-foreground"
           required
         />
         <input
@@ -37,15 +37,15 @@ const Register: React.FC = () => {
           placeholder="Password"
           value={password}
           onChange={e => setPassword(e.target.value)}
-          className="mb-4 p-2 w-full border rounded"
+          className="mb-4 p-2 w-full border rounded bg-input text-foreground"
           required
         />
-        {error && <div className="text-red-500 mb-2">{error}</div>}
+        {error && <div className="text-destructive mb-2">{error}</div>}
         {success && <div className="text-green-600 mb-2">{success}</div>}
-        <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded w-full">Register</button>
+        <button type="submit" className="bg-primary text-primary-foreground px-4 py-2 rounded w-full">Register</button>
         <p className="mt-4 text-center text-sm text-muted-foreground">
           Already have an account?{" "}
-          <Link to="/login" className="underline text-foreground">
+          <Link to="/login" className="underline text-primary">
             Login
           </Link>
         </p>

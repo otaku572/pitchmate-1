@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { ThemeToggle } from "./theme-toggle";
 
 const Navigation = () => {
+  const loggedIn = localStorage.getItem('token');
+
   return (
     <nav className="flex items-center justify-between p-6 bg-background/80 backdrop-blur-sm border-b border-border">
       <div className="flex items-center space-x-2">
@@ -14,21 +16,42 @@ const Navigation = () => {
       </div>
       
       <div className="hidden md:flex items-center space-x-8">
-        <a href="#features" className="text-muted-foreground hover:text-foreground transition-colors">
-          Features
-        </a>
-        <a href="#pricing" className="text-muted-foreground hover:text-foreground transition-colors">
-          Pricing
-        </a>
-        <a href="#about" className="text-muted-foreground hover:text-foreground transition-colors">
-          About
-        </a>
+        {loggedIn ? (
+          <>
+            <Link to="/features" className="text-muted-foreground hover:text-foreground transition-colors">
+              Features
+            </Link>
+            <Link to="/pricing" className="text-muted-foreground hover:text-foreground transition-colors">
+              Pricing
+            </Link>
+            <Link to="/about" className="text-muted-foreground hover:text-foreground transition-colors">
+              About
+            </Link>
+          </>
+        ) : (
+          <>
+            <a href="#features" className="text-muted-foreground hover:text-foreground transition-colors">
+              Features
+            </a>
+            <a href="#pricing" className="text-muted-foreground hover:text-foreground transition-colors">
+              Pricing
+            </a>
+            <a href="#about" className="text-muted-foreground hover:text-foreground transition-colors">
+              About
+            </a>
+          </>
+        )}
       </div>
       
       <div className="flex items-center space-x-4">
         <ThemeToggle />
-        {localStorage.getItem('token') ? (
-          <Button variant="ghost" onClick={() => { localStorage.removeItem('token'); window.location.href = '/login'; }}>Logout</Button>
+        {loggedIn ? (
+          <>
+            <Link to="/">
+              <Button variant="hero">Dashboard</Button>
+            </Link>
+            <Button variant="ghost" onClick={() => { localStorage.removeItem('token'); window.location.href = '/login'; }}>Logout</Button>
+          </>
         ) : (
           <>
             <Link to="/login">

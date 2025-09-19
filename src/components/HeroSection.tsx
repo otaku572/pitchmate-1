@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-pitchmate.jpg";
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
@@ -18,14 +19,13 @@ const HeroSection = () => {
                 compelling messages that convert prospects into opportunities.
               </p>
             </div>
-            
+
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button variant="hero" size="lg" className="text-base px-8 py-4">
-                Start Creating Pitches
-              </Button>
-              <Button variant="outline" size="lg" className="text-base px-8 py-4">
-                Watch Demo
-              </Button>
+              <Link to="/register">
+                <Button variant="hero" size="lg" className="text-base px-8 py-4">
+                  Start Creating Pitches
+                </Button>
+              </Link>
             </div>
             
             <div className="flex items-center space-x-8 text-sm text-muted-foreground">
